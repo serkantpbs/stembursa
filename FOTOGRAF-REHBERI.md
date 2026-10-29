@@ -27,7 +27,7 @@ Logoyu `img/logo.png` adıyla yüklerseniz başlıkta otomatik olarak görünür
 
 Sonradan bir fotoğrafı değiştirmek için aynı adlı yeni dosyayı yüklemeniz yeterlidir.
 
-## Dosya adları (26 varlık)
+## Dosya adları (25 varlık)
 
 ### İpek
 
@@ -65,7 +65,6 @@ Sonradan bir fotoğrafı değiştirmek için aynı adlı yeni dosyayı yüklemen
 |---|---|---|
 | `iznik-cini.jpg` | İznik Çinisi | İznik çinisi yakın çekim; mavi, yeşil ve kırmızı renkler |
 | `yesil-cami.jpg` | Yeşil Cami ve Çini Geometrisi | Yeşil Cami'nin çini kaplı mihrabı ya da altıgen çiniler |
-| `kestane-sekeri.jpg` | Kestane Şekeri | Kestane şekeri yakın çekim |
 
 ### Gökyüzü ve Işık
 

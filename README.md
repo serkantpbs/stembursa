@@ -2,17 +2,17 @@
 
 **Bursa İl Millî Eğitim Müdürlüğü — Yenilik ve Eğitim Teknolojileri Hizmetleri Şubesi**
 
-Bursa'nın tarihten günümüze bilim, teknoloji, mühendislik ve matematik mirasını altı izlek ve 26 STEM varlığı üzerinden sunan, GitHub Pages'te çalışan statik bir web sitesi.
+Bursa'nın tarihten günümüze bilim, teknoloji, mühendislik ve matematik mirasını altı izlek ve 25 STEM varlığı üzerinden sunan, GitHub Pages'te çalışan statik bir web sitesi.
 
 ## İçerik
 
 | Bölüm | Açıklama |
 |---|---|
 | 6 izlek | İpek · Su · Toprak ve Yapı · Ateş ve Malzeme · Gökyüzü ve Işık · Hareket |
-| 26 STEM varlığı | Her biri için genel bakış, gelişim süreci, bilim köşesi, STEM ve mühendislik alanı bağlantıları |
+| 25 STEM varlığı | Her biri için genel bakış, gelişim süreci, bilim köşesi, STEM ve mühendislik alanı bağlantıları |
 | 3B inceleme | Parçalarına ayrılıp yeniden birleşen şematik model, bilgi notları, 360° döndürme, etiketler, "İnşa et" modu |
 | 4 etkileşimli uygulama | Kemer Kur, Su Terazisi Simülasyonu, Çini Simetri Atölyesi, Karagöz Gölge Laboratuvarı |
-| 52 PDF | Her varlık için Türkçe öğretmen kılavuzu ile öğrenci çalışma kâğıdı ve kes-birleştir sayfası |
+| 50 PDF | Her varlık için Türkçe öğretmen kılavuzu ile öğrenci çalışma kâğıdı ve kes-birleştir sayfası |
 | İki dil | Site arayüzü ve içerikler Türkçe / İngilizce (sağ üstteki dil düğmesi); PDF'ler yalnızca Türkçe |
 | Erişilebilirlik | Klavye ile gezinme, ekran okuyucu etiketleri, yazı boyutu, yüksek kontrast, okuma kolaylığı, animasyon azaltma, telifsiz sesli okuma |
 
@@ -20,7 +20,7 @@ Bursa'nın tarihten günümüze bilim, teknoloji, mühendislik ve matematik mira
 
 Site **tek bir `index.html` dosyasıdır**; tüm sayfalar, 3B modeller ve uygulamalar bu dosyanın içindedir. PDF'ler `pdf/tr` klasöründedir.
 
-Toplam 55 dosya olduğu için hepsi **tek seferde** yüklenebilir (GitHub web arayüzü sınırı 100 dosyadır):
+Toplam 53 dosya olduğu için hepsi **tek seferde** yüklenebilir (GitHub web arayüzü sınırı 100 dosyadır):
 
 1. Deponuzda **Add file → Upload files** sayfasını açın.
 2. Bu klasördeki `index.html`, `README.md` dosyalarını ve **`pdf` klasörünü** birlikte sürükleyip bırakın, ardından "Commit changes" düğmesine basın.

@@ -737,12 +737,14 @@ button { font: inherit; cursor: pointer; }
 .ust-bant .kap { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 6px 0; flex-wrap: wrap; }
 .ust-bant a { color: #e6efe8; }
 .basl { background: #fff; border-bottom: 1px solid var(--cizgi); position: sticky; top: 0; z-index: 40; }
-.basl .kap { display: flex; align-items: center; gap: 16px; padding: 10px 0; }
+.basl .kap { display: flex; align-items: center; gap: 16px; padding: 8px 0; }
 .marka { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; min-width: 0; }
-.marka img { width: 52px; height: 52px; object-fit: contain; }
-.marka .amblem { width: 52px; height: 52px; flex: none; }
+.marka img { width: 84px; height: 84px; object-fit: contain; flex: none; }
+@media (max-width: 1240px) { .marka img { width: 68px; height: 68px; } }
+@media (max-width: 520px) { .marka img { width: 56px; height: 56px; } }
+.marka .amblem { width: 60px; height: 60px; flex: none; }
 .marka .kurum { font-size: .72rem; color: var(--metin-2); line-height: 1.3; display: none; }
-@media (min-width: 1440px) { .marka .kurum { display: block; } }
+
 .marka .site-adi { font-family: "Noto Serif", Georgia, serif; font-weight: 700; color: var(--yesil-800); font-size: 1.12rem; line-height: 1.2; display: block; max-width: 19ch; }
 .nav { margin-left: auto; display: flex; align-items: center; gap: 2px; }
 .nav a { text-decoration: none; color: var(--metin); padding: 8px 8px; border-radius: 8px; font-size: .9rem; white-space: nowrap; }
@@ -971,6 +973,7 @@ section[id], [id^="b-"] { scroll-margin-top: 140px; }
 @media (max-width: 760px) { .alt-bilgi .kap { grid-template-columns: 1fr; } }
 .yazdir-gizle {}
 @media print { .basl, .ust-bant, .alt-bilgi, .sekme-nav, .viewer, .ses-cubuk, .yazdir-gizle { display: none !important; } body { background: #fff; } .panel { box-shadow: none; } }
+.marka img + .amblem { display: none; }
 </style>
 </head>
 <body>
@@ -1041,8 +1044,8 @@ window.IZLEKLER = [
     ad: { tr: 'Ateş ve Malzeme', en: 'Fire and Materials' },
     alt: { tr: 'Isı ile dönüşen maddeler', en: 'Matter transformed by heat' },
     ozet: {
-      tr: 'Fırında pişen çini, ısıyla sertleşen sır, şurupta kristalleşen şeker... Bu hat, ısının maddeyi nasıl dönüştürdüğünü ve ustaların bu bilgiyi yüzyıllardır nasıl kullandığını anlatır.',
-      en: 'Tiles fired in a kiln, glaze hardened by heat, sugar crystallising in syrup... This thread explains how heat transforms matter and how craftspeople have used that knowledge for centuries.'
+      tr: 'Fırında pişen kuvarslı hamur, ısıyla camlaşan sır, metal oksitlerden doğan renkler... Bu hat, ısının maddeyi nasıl dönüştürdüğünü ve ustaların bu bilgiyi yüzyıllardır nasıl kullandığını anlatır.',
+      en: 'Quartz bodies fired in a kiln, glaze turned to glass by heat, colours born from metal oxides... This thread explains how heat transforms matter and how craftspeople have used that knowledge for centuries.'
     }
   },
   {
@@ -5857,266 +5860,6 @@ V({
  ]
 });
 
-V({
- "id": "kestane-sekeri",
- "izlek": "ates",
- "donem": "surekli",
- "yil": {
-  "tr": "Geçmişten günümüze",
-  "en": "Past to present"
- },
- "konum": [
-  40.19,
-  29.061
- ],
- "yaklasik": true,
- "ad": {
-  "tr": "Kestane Şekeri",
-  "en": "Candied Chestnuts"
- },
- "ozet": {
-  "tr": "Bursa'da yetişen kestaneler, şehrin en bilinen lezzetlerinden kestane şekerinin ham maddesidir. Kestanelerin günlerce şeker şurubunda yavaş yavaş pişirilmesi; difüzyon, ozmoz ve kristalleşme gibi bilimsel süreçlere dayanır. Bursa kestane şekeri Türkiye'de coğrafi işaretle tescillidir; 2025'te Avrupa Birliği'nde de tescil edilmiştir.",
-  "en": "Chestnuts grown in Bursa are the raw material of one of the city's best-known treats: candied chestnuts. Simmering chestnuts slowly in sugar syrup for days relies on diffusion, osmosis and crystallisation. Bursa candied chestnuts carry a Turkish geographical indication and were also registered in the European Union in 2025."
- },
- "stem": {
-  "bilim": {
-   "tr": "Difüzyon, ozmoz, çözünürlük ve kristalleşme.",
-   "en": "Diffusion, osmosis, solubility and crystallisation."
-  },
-  "teknoloji": {
-   "tr": "Sıcaklık kontrollü kazanlar, ambalajlama ve gıda güvenliği.",
-   "en": "Temperature-controlled vats, packaging and food safety."
-  },
-  "muhendislik": {
-   "tr": "Kademeli şeker artışıyla kestanenin dağılmadan şekerlenmesi için süreç tasarımı.",
-   "en": "Designing a gradual sugar process so chestnuts candy without falling apart."
-  },
-  "matematik": {
-   "tr": "Derişim, yüzde ve oran hesapları.",
-   "en": "Concentration, percentage and ratio."
-  }
- },
- "muh": [
-  {
-   "tr": "Gıda mühendisliği",
-   "en": "Food engineering"
-  },
-  {
-   "tr": "Ziraat mühendisliği",
-   "en": "Agricultural engineering"
-  }
- ],
- "gelisim": [
-  [
-   "Geleneksel dönem",
-   {
-    "tr": "Bursa ve çevresinde kestane yetiştiriciliği yaygınlaştı.",
-    "en": "Chestnut growing spread around Bursa."
-   }
-  ],
-  [
-   "20. yy",
-   {
-    "tr": "Bursa'da kestane şekeri üretimi bir sektöre dönüştü.",
-    "en": "Candied-chestnut production grew into an industry in Bursa."
-   }
-  ],
-  [
-   "Coğrafi işaret",
-   {
-    "tr": "Bursa kestane şekeri Türkiye'de coğrafi işaret tescili aldı.",
-    "en": "Bursa candied chestnuts received a Turkish geographical indication."
-   }
-  ],
-  [
-   "2025",
-   {
-    "tr": "Bursa kestane şekeri, Avrupa Birliği'nde coğrafi işaret olarak tescil edildi.",
-    "en": "Bursa candied chestnuts were registered as a geographical indication in the European Union."
-   }
-  ]
- ],
- "bilim": {
-  "baslik": {
-   "tr": "Şeker neden yavaş yavaş artırılır?",
-   "en": "Why is sugar increased slowly?"
-  },
-  "metin": {
-   "tr": "Kestane çok yoğun bir şuruba birden atılırsa içindeki su hızla dışarı çıkar (ozmoz); kestane büzüşür ve sertleşir. Şeker oranı günler içinde azar azar artırıldığında ise şeker molekülleri kestanenin içine yavaşça yayılır (difüzyon) ve kestane bütünlüğünü korur. Sonunda yüzeyde ince bir şeker kristali tabakası oluşur.",
-   "en": "Drop a chestnut into very strong syrup and water rushes out (osmosis), so it shrinks and hardens. Raising the sugar level little by little over days lets sugar molecules slowly diffuse inside and the chestnut stays whole. Finally a thin crystalline sugar layer forms on the surface."
-  }
- },
- "parcalar": {
-  "kabuk": {
-   "ad": {
-    "tr": "Dış kabuk",
-    "en": "Outer shell"
-   },
-   "gorev": {
-    "tr": "Kestaneyi korur; işlemeden önce soyulur.",
-    "en": "Protects the nut; removed before processing."
-   }
-  },
-  "zar": {
-   "ad": {
-    "tr": "İç zar",
-    "en": "Inner skin"
-   },
-   "gorev": {
-    "tr": "Acımsı ince zar; buharla soyulur.",
-    "en": "Bitter thin skin, removed with steam."
-   }
-  },
-  "ic": {
-   "ad": {
-    "tr": "Kestane içi",
-    "en": "Kernel"
-   },
-   "gorev": {
-    "tr": "Nişastaca zengin yenilebilir kısım.",
-    "en": "The starchy edible part."
-   }
-  },
-  "surup": {
-   "ad": {
-    "tr": "Şeker şurubu",
-    "en": "Sugar syrup"
-   },
-   "gorev": {
-    "tr": "Derişimi giderek artan şekerli su.",
-    "en": "Sugar water of increasing concentration."
-   }
-  },
-  "vanilya": {
-   "ad": {
-    "tr": "Aroma",
-    "en": "Flavouring"
-   },
-   "gorev": {
-    "tr": "Lezzet ve koku verir.",
-    "en": "Adds flavour and aroma."
-   }
-  },
-  "kristal": {
-   "ad": {
-    "tr": "Şeker kristali tabakası",
-    "en": "Sugar crystal coat"
-   },
-   "gorev": {
-    "tr": "Yüzeyi kaplayarak korur ve parlaklık verir.",
-    "en": "Coats and protects the surface, adding shine."
-   }
-  }
- },
- "insa": {
-  "sira": [
-   "ic",
-   "zar",
-   "kabuk",
-   "surup",
-   "vanilya",
-   "kristal"
-  ],
-  "ipucu": {
-   "tr": "Doğadaki kestaneyi içten dışa kur; şurup ve kristal, insanın eklediği katmanlardır.",
-   "en": "Build the natural nut from the inside out; syrup and crystals are the layers people add."
-  }
- },
- "etkinlik": {
-  "ad": {
-   "tr": "Ozmoz Dedektifleri",
-   "en": "Osmosis Detectives"
-  },
-  "problem": {
-   "tr": "Patates dilimlerini şeker oranı farklı sulara koyarak hangi derişimin dilimi büzüştürmeden \"şekerlediğini\" bulun.",
-   "en": "Place potato slices in sugar solutions of different strengths to find which concentration \"candies\" them without shrinking."
-  },
-  "sure": {
-   "tr": "2 ders saati (+1 gün bekleme)",
-   "en": "2 lessons (+1 day waiting)"
-  },
-  "malzeme": {
-   "tr": "Patates, şeker, su, şeffaf bardaklar, mutfak tartısı, cetvel, etiket (yenmez, yalnızca deney amaçlı)",
-   "en": "Potato, sugar, water, clear cups, kitchen scale, ruler, labels (for testing only, not for eating)"
-  },
-  "kademe": {
-   "okuloncesi": {
-    "tr": "Tuzlu ve şekerli suda bekletilen salatalık dilimlerinin nasıl değiştiğini gözlemler.",
-    "en": "Observes cucumber slices changing in salty and sweet water."
-   },
-   "ilkokul": {
-    "tr": "Şeker oranı farklı üç suda bekletilen patates dilimlerinin boyunu ölçer.",
-    "en": "Measures potato slices left in three sugar solutions."
-   },
-   "ortaokul": {
-    "tr": "Derişimleri yüzde olarak hesaplar, kütle değişimini grafikle gösterir.",
-    "en": "Calculates concentrations as percentages and graphs mass change."
-   },
-   "lise": {
-    "tr": "Ozmotik basınç ve difüzyon hızı kavramlarıyla kestane şekeri yapımını açıklar.",
-    "en": "Explains candied-chestnut processing with osmotic pressure and diffusion rate."
-   }
-  },
-  "maarif": {
-   "kb": [
-    "KB2.2",
-    "KB2.11",
-    "KB2.14"
-   ],
-   "e": [
-    "merak",
-    "sistematik",
-    "azim"
-   ],
-   "deger": [
-    "sabir",
-    "tasarruf"
-   ]
-  },
-  "degerlendirme": {
-   "tr": "Değişkenler kontrol edildi mi? Sonuç ozmozla açıklandı mı?",
-   "en": "Were variables controlled? Was the result explained by osmosis?"
-  }
- },
- "calisma": [
-  {
-   "tr": "Difüzyon ve ozmoz arasındaki farkı günlük hayattan örneklerle açıkla.",
-   "en": "Explain diffusion and osmosis with everyday examples."
-  },
-  {
-   "tr": "200 g suya 50 g şeker eklenirse şurubun şeker oranı yüzde kaçtır?",
-   "en": "If 50 g sugar is added to 200 g water, what percentage of the syrup is sugar?"
-  },
-  {
-   "tr": "Kestane neden yoğun şuruba birden atılmaz?",
-   "en": "Why aren't chestnuts put straight into strong syrup?"
-  },
-  {
-   "tr": "Coğrafi işaret tescili bir ürünü nasıl korur? Bursa'dan coğrafi işaretli iki ürün daha bul.",
-   "en": "How does a geographical indication protect a product? Find two more GI products from Bursa."
-  }
- ],
- "kesbirlestir": "katman",
- "kaynak": [
-  [
-   "BTSO — Bursa Kestane Şekeri artık coğrafi işaret sahibi",
-   "https://www.btso.org.tr/guncel/haberler-ve-duyurular/haber-duyuru-detay/56929"
-  ],
-  [
-   "T.C. Tarım ve Orman Bakanlığı — Bursa Kestane Şekeri ve İpsala Pirinci AB'den coğrafi işaret tescili aldı",
-   "https://www.tarimorman.gov.tr/Haber/6857/Bursa-Kestane-Sekeri-Ve-Ipsala-Pirinci-Abden-Cografi-Isaret-Tescili-Aldi"
-  ],
-  [
-   "Türk Patent ve Marka Kurumu — İpsala Pirinci ve Bursa Kestane Şekeri Avrupa Birliği'nde tescillendi",
-   "https://www.turkpatent.gov.tr/haberler/ipsala-pirinci-ve-bursa-kestane-sekeri-avrupa-birliginde-tescillendi"
-  ],
-  [
-   "Bursa Büyükşehir Belediyesi — Bursa kestanesi de artık tescilli",
-   "https://www.bursa.bel.tr/haber/bursa-kestanesi-de-artik-tescilli-34087"
-  ]
- ]
-});
-
 </script>
   <script>/* data/gok.js */
 /* İZLEK: GÖKYÜZÜ VE IŞIK — resmî kaynaklara göre güncellendi */
@@ -8299,7 +8042,7 @@ V({
 
 </script>
   <script>/* pdf/manifest.js */
-window.PDF_MANIFEST = {"pdf/tr/ogretmen-ipek-bocegi.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-ipek-bocegi.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-koza-han.pdf": {"s": 4, "kb": 101}, "pdf/tr/ogrenci-koza-han.pdf": {"s": 4, "kb": 100}, "pdf/tr/ogretmen-bedesten.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-bedesten.pdf": {"s": 4, "kb": 101}, "pdf/tr/ogretmen-ipek-dokuma.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-ipek-dokuma.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-merinos.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-merinos.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-teknik-tekstil.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-teknik-tekstil.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-termal-kaynak.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-termal-kaynak.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-eski-kaplica.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-eski-kaplica.pdf": {"s": 4, "kb": 100}, "pdf/tr/ogretmen-su-terazisi.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-su-terazisi.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-uluabat.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-uluabat.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-ulu-cami.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-ulu-cami.pdf": {"s": 4, "kb": 101}, "pdf/tr/ogretmen-irgandi.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-irgandi.pdf": {"s": 4, "kb": 100}, "pdf/tr/ogretmen-cumalikizik.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-cumalikizik.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-darussifa.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-darussifa.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-uludag.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-uludag.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-iznik-cini.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-iznik-cini.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-yesil-cami.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-yesil-cami.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-kestane-sekeri.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-kestane-sekeri.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-kadizade.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-kadizade.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-saat-kulesi.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-saat-kulesi.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-karagoz.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-karagoz.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-guhem.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-guhem.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-teleferik.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-teleferik.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-otomotiv.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-otomotiv.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-togg.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-togg.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-rayli-sistem.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-rayli-sistem.pdf": {"s": 5, "kb": 117}};
+window.PDF_MANIFEST = {"pdf/tr/ogretmen-ipek-bocegi.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-ipek-bocegi.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-koza-han.pdf": {"s": 4, "kb": 101}, "pdf/tr/ogrenci-koza-han.pdf": {"s": 4, "kb": 100}, "pdf/tr/ogretmen-bedesten.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-bedesten.pdf": {"s": 4, "kb": 101}, "pdf/tr/ogretmen-ipek-dokuma.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-ipek-dokuma.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-merinos.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-merinos.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-teknik-tekstil.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-teknik-tekstil.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-termal-kaynak.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-termal-kaynak.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-eski-kaplica.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-eski-kaplica.pdf": {"s": 4, "kb": 100}, "pdf/tr/ogretmen-su-terazisi.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-su-terazisi.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-uluabat.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-uluabat.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-ulu-cami.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-ulu-cami.pdf": {"s": 4, "kb": 101}, "pdf/tr/ogretmen-irgandi.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-irgandi.pdf": {"s": 4, "kb": 100}, "pdf/tr/ogretmen-cumalikizik.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-cumalikizik.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-darussifa.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-darussifa.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-uludag.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-uludag.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-iznik-cini.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-iznik-cini.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-yesil-cami.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-yesil-cami.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-kadizade.pdf": {"s": 3, "kb": 100}, "pdf/tr/ogrenci-kadizade.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-saat-kulesi.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-saat-kulesi.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-karagoz.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-karagoz.pdf": {"s": 4, "kb": 99}, "pdf/tr/ogretmen-guhem.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-guhem.pdf": {"s": 4, "kb": 98}, "pdf/tr/ogretmen-teleferik.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-teleferik.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-otomotiv.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-otomotiv.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-togg.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-togg.pdf": {"s": 5, "kb": 117}, "pdf/tr/ogretmen-rayli-sistem.pdf": {"s": 3, "kb": 99}, "pdf/tr/ogrenci-rayli-sistem.pdf": {"s": 5, "kb": 117}};
 
 </script>
   <script>/* assets/js/i18n.js */
@@ -8803,19 +8546,6 @@ window.UI = {
     };
   };
 
-  M['kestane-sekeri'] = function (G) {
-    var ic = G.ellip(1.4, 1.15, 1.1, 0, 1.3, 0, '#e6c48d');
-    var zar = G.ellip(1.48, 1.22, 1.17, 0, 1.3, 0, '#9c6b3e', { o: 0.55 });
-    var kabuk = [G.ellip(1.62, 1.35, 1.3, 0, 1.3, 0, '#5a3418', { o: 0.5 }), G.cone(0.25, 0.4, 0, 2.75, 0, '#c9a87a')];
-    var surup = [G.cyl(2.6, 2.4, 1.6, 0, 0.8, 0, '#e3a63c', { o: 0.35 })];
-    var van = [G.cyl(0.07, 0.07, 2.4, 1.9, 1.6, 0.6, '#3a2414')]; van[0].rotation.z = 0.4;
-    var kr = []; for (var i = 0; i < 26; i++) { var a = i * 2.4, b = i * 0.7; kr.push(G.box(0.12, 0.12, 0.12, Math.cos(a) * Math.sin(b) * 1.5, 1.3 + Math.cos(b) * 1.25, Math.sin(a) * Math.sin(b) * 1.4, '#fffaf0', { r: 0.2 })); }
-    return {
-      parts: { kabuk: kabuk, zar: zar, ic: ic, surup: surup, vanilya: van, kristal: kr },
-      explode: { kabuk: [0, 0, 3.8], zar: [0, 0, 2], ic: [0, 0, 0], surup: [0, -1, -4], vanilya: [3, 0, -2], kristal: [0, 2.8, 0] },
-      cam: 13
-    };
-  };
 
   /* ===================== GÖKYÜZÜ VE IŞIK ===================== */
   M['kadizade'] = function (G) {
