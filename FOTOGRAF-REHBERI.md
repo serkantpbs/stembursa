@@ -27,7 +27,7 @@ Logoyu `img/logo.png` adıyla yüklerseniz başlıkta otomatik olarak görünür
 
 Sonradan bir fotoğrafı değiştirmek için aynı adlı yeni dosyayı yüklemeniz yeterlidir.
 
-## Dosya adları (25 varlık)
+## Dosya adları (24 varlık)
 
 ### İpek
 
@@ -70,7 +70,6 @@ Sonradan bir fotoğrafı değiştirmek için aynı adlı yeni dosyayı yüklemen
 
 | Dosya adı | Varlık | Önerilen kare |
 |---|---|---|
-| `kadizade.jpg` | Kadızâde-i Rûmî ve Gökyüzünü Ölçmek | Portre kullanmayın; gökyüzü, güneş saati ya da astronomi aracı fotoğrafı |
 | `saat-kulesi.jpg` | Tophane Saat Kulesi | Tophane Saat Kulesi'nin tamamı |
 | `karagoz.jpg` | Karagöz Gölge Oyunu | Karagöz figürleri ya da arkadan aydınlatılmış perde |
 | `guhem.jpg` | GUHEM ve Roket Bilimi | GUHEM binası ya da sergi alanı (izinle) |
