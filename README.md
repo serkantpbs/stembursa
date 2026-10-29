@@ -14,7 +14,7 @@ Bursa'nın tarihten günümüze bilim, teknoloji, mühendislik ve matematik mira
 | 4 etkileşimli uygulama | Kemer Kur, Su Terazisi Simülasyonu, Çini Simetri Atölyesi, Karagöz Gölge Laboratuvarı |
 | 48 PDF | Her varlık için Türkçe öğretmen kılavuzu ile öğrenci çalışma kâğıdı ve kes-birleştir sayfası |
 | İki dil | Site arayüzü ve içerikler Türkçe / İngilizce (sağ üstteki dil düğmesi); PDF'ler yalnızca Türkçe |
-| Erişilebilirlik | Klavye ile gezinme, ekran okuyucu etiketleri, yazı boyutu, yüksek kontrast, okuma kolaylığı, animasyon azaltma, telifsiz sesli okuma |
+| Erişilebilirlik | Klavye ile gezinme, ekran okuyucu etiketleri, yazı boyutu, yüksek kontrast, okuma kolaylığı ve animasyon azaltma |
 
 ## GitHub Pages'te yayımlama
 
@@ -52,7 +52,6 @@ Bilgiler yalnızca resmî kurumların (bakanlıklar, valilik, belediyeler, UNESC
 Site fotoğrafları deponun `img` klasöründen okur (ör. `img/irgandi.jpg`). Fotoğrafı olmayan varlıklarda şematik çizim gösterilir. Dosya adlarının listesi ve kurallar için **FOTOGRAF-REHBERI.md** dosyasına bakın.
 
 - Harita OpenStreetMap altlığı kullanır (© OpenStreetMap katkıcıları, ODbL).
-- Sesli okuma, tarayıcının ve işletim sisteminin yerleşik sesleriyle (Web Speech API) yapılır; ses dosyası barındırılmaz. Türkçe ses, cihazda Türkçe konuşma paketi yüklüyse kullanılır.
 
 ## Bilinen sınırlar
 

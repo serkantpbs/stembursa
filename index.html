@@ -9031,7 +9031,7 @@ window.UI = {
 
 </script>
   <script>/* assets/js/app.js */
-/* Geçmişten Günümüze Bursa'da STEM — Uygulama (yönlendirme, sayfalar, erişilebilirlik, seslendirme) */
+/* Geçmişten Günümüze Bursa'da STEM — Uygulama (yönlendirme, sayfalar, erişilebilirlik) */
 (function () {
   'use strict';
   var V = window.VARLIKLAR, IZ = window.IZLEKLER;
@@ -9169,7 +9169,7 @@ window.UI = {
 
   /* ---------- Seslendirme (Web Speech API — telifsiz, cihazın kendi sesleri) ---------- */
   var ses = {
-    destek: 'speechSynthesis' in window,
+    destek: false, /* seslendirme kapatıldı */
     hiz: parseFloat(oku('hiz', '1')) || 1,
     ses: function () { var v = speechSynthesis.getVoices(), kod = S.lang === 'tr' ? 'tr' : 'en'; return v.filter(function (x) { return x.lang && x.lang.toLowerCase().indexOf(kod) === 0; }).sort(function (a, b) { return (b.localService ? 1 : 0) - (a.localService ? 1 : 0); })[0]; },
     oku: function (metin) {
@@ -9203,7 +9203,7 @@ window.UI = {
     durdur: function () { if (this.destek) speechSynthesis.cancel(); this.kaldir(); }
   };
   if (ses.destek) { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = function () { }; }
-  function sesBtn(hedef) { return '<button type="button" class="btn btn-ikinci btn-kucuk seslendir" data-oku="' + hedef + '">' + IKON.ses + esc(u('sesli')) + '</button>'; }
+  function sesBtn() { return ''; } /* seslendirme kapatıldı */
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-oku]'); if (!b) return;
     var hedef = document.getElementById(b.dataset.oku); if (hedef) ses.oku(hedef.innerText);
@@ -9508,8 +9508,8 @@ window.UI = {
         ? '<li>Bilgiler yalnızca resmî kurumların ve uluslararası kuruluşların yayınlarından derlenmiş; kaynaklar her varlık sayfasında belirtilmiştir. Resmî olmayan ve telif hakkı sorunu doğurabilecek kaynaklar kullanılmamıştır.</li><li>Fotoğraflar proje arşivine aittir. Fotoğrafı bulunmayan varlıklar şematik çizimlerle sunulmuştur.</li><li>3B modeller öğretim amacıyla hazırlanmış şematik gösterimlerdir.</li><li>Yapıların ve teknolojilerin zaman içindeki değişimi "gelişim süreci" kavramıyla anlatılmıştır.</li>'
         : '<li>Information was compiled only from publications of official institutions and international organisations, with sources listed on each asset page. Unofficial sources and sources that could raise copyright issues have not been used.</li><li>Photographs belong to the project archive. Assets without a photo are shown with schematic illustrations.</li><li>3D models are schematic teaching representations.</li><li>Changes over time are described as "development".</li>') + '</ul></div>' +
       '<div class="panel"><h2>' + (tr ? 'Erişilebilirlik beyanı' : 'Accessibility statement') + '</h2><p>' + (tr
-        ? 'Site; klavye ile tam gezinme, ekran okuyucu uyumlu yapı ve etiketler, yazı boyutu büyütme, yüksek kontrast, okuma kolaylığı (harf ve satır aralığı), animasyonları azaltma ve tarayıcının yerleşik sesleriyle telifsiz sesli okuma desteği sunar. 3B modellerdeki tüm bilgiler, parça listesi aracılığıyla metin olarak da erişilebilirdir. Web İçeriği Erişilebilirlik Yönergeleri (WCAG) 2.1 AA düzeyi hedeflenmiştir.'
-        : 'The site offers full keyboard navigation, screen-reader-friendly structure and labels, text enlargement, high contrast, reading-ease spacing, reduced animation and royalty-free read-aloud using the browser\'s built-in voices. All information in the 3D models is also available as text through the parts list. WCAG 2.1 level AA is targeted.') + '</p></div>' +
+        ? 'Site; klavye ile tam gezinme, ekran okuyucu uyumlu yapı ve etiketler, yazı boyutu büyütme, yüksek kontrast, okuma kolaylığı (harf ve satır aralığı) ve animasyonları azaltma desteği sunar. 3B modellerdeki tüm bilgiler, parça listesi aracılığıyla metin olarak da erişilebilirdir. Web İçeriği Erişilebilirlik Yönergeleri (WCAG) 2.1 AA düzeyi hedeflenmiştir.'
+        : 'The site offers full keyboard navigation, screen-reader-friendly structure and labels, text enlargement, high contrast, reading-ease spacing and reduced animation. All information in the 3D models is also available as text through the parts list. WCAG 2.1 level AA is targeted.') + '</p></div>' +
       '<div class="panel"><h2>' + (tr ? 'İletişim' : 'Contact') + '</h2><p>' + esc(u('mem')) + '<br>' + esc(u('sube')) + '</p></div></div></section>';
   }
 
