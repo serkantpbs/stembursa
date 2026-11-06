@@ -974,6 +974,11 @@ section[id], [id^="b-"] { scroll-margin-top: 140px; }
 .yazdir-gizle {}
 @media print { .basl, .ust-bant, .alt-bilgi, .sekme-nav, .viewer, .ses-cubuk, .yazdir-gizle { display: none !important; } body { background: #fff; } .panel { box-shadow: none; } }
 .marka img + .amblem { display: none; }
+
+.model-sec { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.ozel-model iframe { display: block; width: 100%; height: clamp(440px, 72vh, 720px); border: 1px solid var(--cizgi); border-radius: var(--r); background: #f8fafc; }
+.ozel-not { margin: 8px 0 0; font-size: .86rem; color: var(--metin-2); }
+.ozel-model[hidden], .inceleme[hidden] { display: none; }
 </style>
 </head>
 <body>
@@ -9203,6 +9208,29 @@ window.UI = {
     durdur: function () { if (this.destek) speechSynthesis.cancel(); this.kaldir(); }
   };
   if (ses.destek) { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = function () { }; }
+  /* ---------- Varlığa özel ayrıntılı 3B modeller (ayrı sayfa olarak gömülür) ---------- */
+  var OZEL_MODEL = { 'ulu-cami': 'modeller/ulu-cami.html' };
+  function ozelSecici(v) {
+    var yol = OZEL_MODEL[v.id]; if (!yol) return '';
+    var tr = S.lang === 'tr';
+    return '<div class="model-sec" role="group" aria-label="' + (tr ? 'Model türü' : 'Model type') + '">' +
+      '<button type="button" class="btn btn-kucuk btn-ana" data-ms="ozel" aria-pressed="true">' + (tr ? 'Ayrıntılı mimari model' : 'Detailed architectural model') + '</button>' +
+      '<button type="button" class="btn btn-kucuk btn-ikinci" data-ms="parca" aria-pressed="false">' + (tr ? 'Parça modeli: ayır, birleştir, inşa et' : 'Parts model: take apart, assemble, build') + '</button></div>' +
+      '<div class="ozel-model" id="ozel-model"><iframe src="' + yol + '" title="' + esc(t(v.ad)) + (tr ? ' — etkileşimli 3B mimari model' : ' — interactive 3D architectural model') + '" loading="lazy" allowfullscreen></iframe>' +
+      '<p class="ozel-not">' + (tr ? 'Bu ayrıntılı model öğretim amacıyla hazırlanmıştır; ölçüler ve ayrıntılar yaklaşıktır. ' : 'This detailed model was made for teaching; dimensions and details are approximate. ') +
+      '<a href="' + yol + '" target="_blank" rel="noopener">' + (tr ? 'Modeli yeni sekmede aç' : 'Open the model in a new tab') + '</a></p></div>';
+  }
+  function ozelGiris() { return S.lang === 'tr' ? 'Modeli sürükleyerek döndürebilir, tekerlek ya da iki parmakla yakınlaştırabilirsiniz. Numaralı etiketlere dokunduğunuzda o bölümün bilgisi açılır; "İç mekân (kesit)" düğmesi çatıyı kaldırarak fil ayaklarını gösterir. Parçalara ayırmak ve "İnşa et" uygulamasını denemek için "Parça modeli" düğmesini kullanın.' : 'Drag to rotate, scroll or pinch to zoom. Tap the numbered labels to read about each part; the "İç mekân (kesit)" button lifts the roof to show the piers. Use "Parts model" to take the building apart and to try the build mode.'; }
+  function ozelSeciciBagla() {
+    var ms = $$('.model-sec button'); if (!ms.length) return;
+    ms.forEach(function (b) {
+      b.onclick = function () {
+        var ozel = b.dataset.ms === 'ozel';
+        ms.forEach(function (x) { var on = x === b; x.setAttribute('aria-pressed', on); x.classList.toggle('btn-ana', on); x.classList.toggle('btn-ikinci', !on); });
+        $('#ozel-model').hidden = !ozel; $('.inceleme').hidden = ozel; $('#inceleme-giris').textContent = ozel ? ozelGiris() : u('incelemeGiris');
+      };
+    });
+  }
   function sesBtn() { return ''; } /* seslendirme kapatıldı */
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-oku]'); if (!b) return;
@@ -9314,8 +9342,8 @@ window.UI = {
       '</div><div>' + foto + '</div></div></div>' +
       '<nav class="sekme-nav" aria-label="' + esc(t(v.ad)) + '"><div class="kap">' + sekme.map(function (s) { return '<a href="#/varlik/' + v.id + '/' + s + '" data-bolum="' + s + '">' + esc(u('sekmeler.' + s)) + '</a>'; }).join('') + '</div></nav>' +
       '<div class="kap">' +
-      '<section class="bolum" id="b-inceleme" aria-labelledby="h-inceleme"><h2 id="h-inceleme">' + esc(u('incelemeBaslik')) + '</h2><p style="max-width:80ch;color:var(--metin-2)">' + esc(u('incelemeGiris')) + '</p>' +
-      '<div class="inceleme"><div class="viewer"><div id="viewer-host"></div><div class="viewer-arac" role="toolbar" aria-label="' + esc(u('incelemeBaslik')) + '">' +
+      '<section class="bolum" id="b-inceleme" aria-labelledby="h-inceleme"><h2 id="h-inceleme">' + esc(u('incelemeBaslik')) + '</h2><p style="max-width:80ch;color:var(--metin-2)" id="inceleme-giris">' + esc(OZEL_MODEL[v.id] ? ozelGiris() : u('incelemeGiris')) + '</p>' +
+      ozelSecici(v) + '<div class="inceleme"' + (OZEL_MODEL[v.id] ? ' hidden' : '') + '><div class="viewer"><div id="viewer-host"></div><div class="viewer-arac" role="toolbar" aria-label="' + esc(u('incelemeBaslik')) + '">' +
       '<button class="btn btn-ana btn-kucuk" id="v-ayir">' + esc(u('ayir')) + '</button>' +
       '<button class="btn btn-ikinci btn-kucuk" id="v-dondur" aria-pressed="false">' + esc(u('dondur')) + '</button>' +
       '<button class="btn btn-ikinci btn-kucuk" id="v-etiket" aria-pressed="false">' + esc(u('etiketler')) + '</button>' +
@@ -9353,6 +9381,7 @@ window.UI = {
       b.onclick = function () { sec(b); };
       b.onkeydown = function (e) { var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; var nb = tabs[(n + d + tabs.length) % tabs.length]; nb.focus(); sec(nb); };
     });
+    ozelSeciciBagla();
     // 3B görüntüleyici
     if (!window.THREE) { $('#viewer-host').innerHTML = '<p class="viewer-fallback">3B kitaplığı yüklenemedi.</p>'; return; }
     var liste = $('#parca-liste');

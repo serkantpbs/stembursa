@@ -58,3 +58,7 @@ Site fotoğrafları deponun `img` klasöründen okur (ör. `img/irgandi.jpg`). F
 - 3B modeller öğretim amacıyla hazırlanmış şematik gösterimlerdir; oranlar yaklaşık olarak korunmuştur, ölçüler birebir değildir.
 - "Yaklaşık" olarak işaretlenen harita konumları bir bölgeyi ya da süreci temsil eder.
 - Etkinliklerin dijital tarafı (PDF sayfa düzeni, kes-birleştir geometrisi, uygulamalar) test edilmiştir; sınıf ortamında pilot uygulama yapılması önerilir.
+
+## Ayrıntılı 3B modeller
+
+- `modeller/ulu-cami.html`: Ulu Cami için hazırlanan ayrıntılı mimari model. Ulu Cami sayfasında varsayılan olarak gösterilir; "Parça modeli" düğmesiyle sitenin ayır-birleştir ve "İnşa et" modeline geçilir. Dosya kendi başına da açılabilir ve internet bağlantısı olmadan çalışır.
