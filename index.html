@@ -9209,7 +9209,7 @@ window.UI = {
   };
   if (ses.destek) { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = function () { }; }
   /* ---------- Varlığa özel ayrıntılı 3B modeller (ayrı sayfa olarak gömülür) ---------- */
-  var OZEL_MODEL = { 'ulu-cami': 'modeller/ulu-cami.html' };
+  var OZEL_MODEL = { 'ulu-cami': 'modeller/ulu-cami.html', 'bedesten': 'modeller/bedesten.html' };
   function ozelSecici(v) {
     var yol = OZEL_MODEL[v.id]; if (!yol) return '';
     var tr = S.lang === 'tr';
@@ -9220,7 +9220,7 @@ window.UI = {
       '<p class="ozel-not">' + (tr ? 'Bu ayrıntılı model öğretim amacıyla hazırlanmıştır; ölçüler ve ayrıntılar yaklaşıktır. ' : 'This detailed model was made for teaching; dimensions and details are approximate. ') +
       '<a href="' + yol + '" target="_blank" rel="noopener">' + (tr ? 'Modeli yeni sekmede aç' : 'Open the model in a new tab') + '</a></p></div>';
   }
-  function ozelGiris() { return S.lang === 'tr' ? 'Modeli sürükleyerek döndürebilir, tekerlek ya da iki parmakla yakınlaştırabilirsiniz. Numaralı etiketlere dokunduğunuzda o bölümün bilgisi açılır; "İç mekân (kesit)" düğmesi çatıyı kaldırarak fil ayaklarını gösterir. Parçalara ayırmak ve "İnşa et" uygulamasını denemek için "Parça modeli" düğmesini kullanın.' : 'Drag to rotate, scroll or pinch to zoom. Tap the numbered labels to read about each part; the "İç mekân (kesit)" button lifts the roof to show the piers. Use "Parts model" to take the building apart and to try the build mode.'; }
+  function ozelGiris() { return S.lang === 'tr' ? 'Modeli sürükleyerek döndürebilir, tekerlek ya da iki parmakla yakınlaştırabilirsiniz. Numaralı etiketlere dokunduğunuzda o bölümün bilgisi açılır; "İç mekân (kesit)" düğmesi üst örtüyü kaldırarak yapıyı taşıyan ayakları ve kemerleri gösterir. Parçalara ayırmak ve "İnşa et" uygulamasını denemek için "Parça modeli" düğmesini kullanın.' : 'Drag to rotate, scroll or pinch to zoom. Tap the numbered labels to read about each part; the "İç mekân (kesit)" button lifts the roof to show the piers and arches. Use "Parts model" to take the building apart and to try the build mode.'; }
   function ozelSeciciBagla() {
     var ms = $$('.model-sec button'); if (!ms.length) return;
     ms.forEach(function (b) {
