@@ -9209,7 +9209,7 @@ window.UI = {
   };
   if (ses.destek) { speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged = function () { }; }
   /* ---------- Varlığa özel ayrıntılı 3B modeller (ayrı sayfa olarak gömülür) ---------- */
-  var OZEL_MODEL = { 'ulu-cami': 'modeller/ulu-cami.html', 'bedesten': 'modeller/bedesten.html' };
+  var OZEL_MODEL = { 'ulu-cami': 'modeller/ulu-cami.html', 'bedesten': 'modeller/bedesten.html', 'cumalikizik': 'modeller/cumalikizik.html' };
   function ozelSecici(v) {
     var yol = OZEL_MODEL[v.id]; if (!yol) return '';
     var tr = S.lang === 'tr';
@@ -9220,14 +9220,22 @@ window.UI = {
       '<p class="ozel-not">' + (tr ? 'Bu ayrıntılı model öğretim amacıyla hazırlanmıştır; ölçüler ve ayrıntılar yaklaşıktır. ' : 'This detailed model was made for teaching; dimensions and details are approximate. ') +
       '<a href="' + yol + '" target="_blank" rel="noopener">' + (tr ? 'Modeli yeni sekmede aç' : 'Open the model in a new tab') + '</a></p></div>';
   }
-  function ozelGiris() { return S.lang === 'tr' ? 'Modeli sürükleyerek döndürebilir, tekerlek ya da iki parmakla yakınlaştırabilirsiniz. Numaralı etiketlere dokunduğunuzda o bölümün bilgisi açılır; "İç mekân (kesit)" düğmesi üst örtüyü kaldırarak yapıyı taşıyan ayakları ve kemerleri gösterir. Parçalara ayırmak ve "İnşa et" uygulamasını denemek için "Parça modeli" düğmesini kullanın.' : 'Drag to rotate, scroll or pinch to zoom. Tap the numbered labels to read about each part; the "İç mekân (kesit)" button lifts the roof to show the piers and arches. Use "Parts model" to take the building apart and to try the build mode.'; }
-  function ozelSeciciBagla() {
+  var OZEL_DUGME = {
+    'cumalikizik': { tr: '"Ahşap iskelet" düğmesi, bir evin üst katındaki sıvayı saydamlaştırarak ahşap iskeleti ve kerpiç dolguyu gösterir.', en: 'The "Ahşap iskelet" button makes the plaster of one house transparent to show the timber frame and mud-brick infill.' }
+  };
+  function ozelGiris(id) {
+    var tr = S.lang === 'tr', d = OZEL_DUGME[id];
+    var kesit = d ? (tr ? d.tr : d.en) : (tr ? '"İç mekân (kesit)" düğmesi üst örtüyü kaldırarak yapıyı taşıyan ayakları ve kemerleri gösterir.' : 'The "İç mekân (kesit)" button lifts the roof to show the piers and arches.');
+    return tr ? 'Modeli sürükleyerek döndürebilir, tekerlek ya da iki parmakla yakınlaştırabilirsiniz. Numaralı etiketlere dokunduğunuzda o bölümün bilgisi açılır. ' + kesit + ' Parçalara ayırmak ve "İnşa et" uygulamasını denemek için "Parça modeli" düğmesini kullanın.'
+              : 'Drag to rotate, scroll or pinch to zoom. Tap the numbered labels to read about each part. ' + kesit + ' Use "Parts model" to take the building apart and to try the build mode.';
+  }
+  function ozelSeciciBagla(id) {
     var ms = $$('.model-sec button'); if (!ms.length) return;
     ms.forEach(function (b) {
       b.onclick = function () {
         var ozel = b.dataset.ms === 'ozel';
         ms.forEach(function (x) { var on = x === b; x.setAttribute('aria-pressed', on); x.classList.toggle('btn-ana', on); x.classList.toggle('btn-ikinci', !on); });
-        $('#ozel-model').hidden = !ozel; $('.inceleme').hidden = ozel; $('#inceleme-giris').textContent = ozel ? ozelGiris() : u('incelemeGiris');
+        $('#ozel-model').hidden = !ozel; $('.inceleme').hidden = ozel; $('#inceleme-giris').textContent = ozel ? ozelGiris(id) : u('incelemeGiris');
       };
     });
   }
@@ -9342,7 +9350,7 @@ window.UI = {
       '</div><div>' + foto + '</div></div></div>' +
       '<nav class="sekme-nav" aria-label="' + esc(t(v.ad)) + '"><div class="kap">' + sekme.map(function (s) { return '<a href="#/varlik/' + v.id + '/' + s + '" data-bolum="' + s + '">' + esc(u('sekmeler.' + s)) + '</a>'; }).join('') + '</div></nav>' +
       '<div class="kap">' +
-      '<section class="bolum" id="b-inceleme" aria-labelledby="h-inceleme"><h2 id="h-inceleme">' + esc(u('incelemeBaslik')) + '</h2><p style="max-width:80ch;color:var(--metin-2)" id="inceleme-giris">' + esc(OZEL_MODEL[v.id] ? ozelGiris() : u('incelemeGiris')) + '</p>' +
+      '<section class="bolum" id="b-inceleme" aria-labelledby="h-inceleme"><h2 id="h-inceleme">' + esc(u('incelemeBaslik')) + '</h2><p style="max-width:80ch;color:var(--metin-2)" id="inceleme-giris">' + esc(OZEL_MODEL[v.id] ? ozelGiris(v.id) : u('incelemeGiris')) + '</p>' +
       ozelSecici(v) + '<div class="inceleme"' + (OZEL_MODEL[v.id] ? ' hidden' : '') + '><div class="viewer"><div id="viewer-host"></div><div class="viewer-arac" role="toolbar" aria-label="' + esc(u('incelemeBaslik')) + '">' +
       '<button class="btn btn-ana btn-kucuk" id="v-ayir">' + esc(u('ayir')) + '</button>' +
       '<button class="btn btn-ikinci btn-kucuk" id="v-dondur" aria-pressed="false">' + esc(u('dondur')) + '</button>' +
@@ -9381,7 +9389,7 @@ window.UI = {
       b.onclick = function () { sec(b); };
       b.onkeydown = function (e) { var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return; var nb = tabs[(n + d + tabs.length) % tabs.length]; nb.focus(); sec(nb); };
     });
-    ozelSeciciBagla();
+    ozelSeciciBagla(v.id);
     // 3B görüntüleyici
     if (!window.THREE) { $('#viewer-host').innerHTML = '<p class="viewer-fallback">3B kitaplığı yüklenemedi.</p>'; return; }
     var liste = $('#parca-liste');

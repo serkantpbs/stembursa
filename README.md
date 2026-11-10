@@ -63,3 +63,4 @@ Site fotoğrafları deponun `img` klasöründen okur (ör. `img/irgandi.jpg`). F
 
 - `modeller/ulu-cami.html`: Ulu Cami için hazırlanan ayrıntılı mimari model. Ulu Cami sayfasında varsayılan olarak gösterilir; "Parça modeli" düğmesiyle sitenin ayır-birleştir ve "İnşa et" modeline geçilir. Dosya kendi başına da açılabilir ve internet bağlantısı olmadan çalışır.
 - `modeller/bedesten.html`: Bedesten için hazırlanan ayrıntılı model. Bedesten sayfasında aynı şekilde gösterilir.
+- `modeller/cumalikizik.html`: Cumalıkızık evleri ve sokağı için hazırlanan ayrıntılı model. Cumalıkızık sayfasında aynı şekilde gösterilir.
